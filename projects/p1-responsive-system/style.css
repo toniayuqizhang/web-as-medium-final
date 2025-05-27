@@ -1,0 +1,109 @@
+body {
+    height: 100vh;
+    background: rgb(255, 255, 255);
+/* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    margin-left: auto;
+    pointer-events: none;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding-top: 7vh;
+    display: block;
+    width: 50%;
+    z-index:1;
+}
+
+#tab-hoarding-article {
+    overflow-y: auto;
+    /* border-radius: 10px; */
+    padding: 80px;
+    text-align: left;
+  
+}
+
+h4 {
+    color: rgb(120, 120, 120);
+    margin:0;
+}
+
+p {
+    color:rgb(0, 0, 0);
+    font-family: "PP Writer", sans-serif;
+    font-weight: 500;
+    text-align: left;
+    margin: 20px;
+}
+
+h1 {
+    color:black;
+    font-size: 50px;
+    font-family: "Arial", sans-serif;
+    letter-spacing: -1px;
+    font-weight: 400;
+    margin-top:40px;
+    margin-bottom:10px;
+}
+
+.button {
+    font-size: 24px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #ededed;
+    color: rgb(93, 93, 93);
+    cursor: pointer;
+    position: absolute;
+    bottom: 7vh;
+    left: 20px;
+}
+.window {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border: 0px solid rgb(0, 0, 0);
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 70px;
+    cursor: grab;
+    overflow: hidden;
+}
+.window-header {
+    height: 25px;
+    background-color: white;
+    color:#ffffff;
+    border-bottom: 0px solid rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0px;
+    cursor: grab;
+    font-size: 5px;
+    font-family: Arial, sans-serif;
+}
+.close-btn {
+    color:#959595;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+.window-content {
+    height: calc(100% - 30px);
+    overflow-y: auto;
+    padding: 5px;
+    font-size: 16px;
+    font-family: Georgia, serif;
+}
+.window-content h2 {
+    line-height: 88%;
+    margin:10px;
+    font-size: 50px;
+    font-family: "Arial", sans-serif;
+    color:#000000;
+    letter-spacing: -1px;
+    font-weight: 400;
+}

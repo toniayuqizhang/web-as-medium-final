@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Browser Windows</title>
+  
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0-rc.1/jquery-ui.js"></script>
+    <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        .background-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 0;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style> -->
+   
+</head>
+<body>
+    
+    <button class="button" onclick="openNextWindow()">+</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const trailContainer = document.createElement("div");
+            trailContainer.style.position = "absolute";
+            trailContainer.style.zIndex = "100000";
+            trailContainer.style.pointerEvents = "none";
+            document.body.appendChild(trailContainer);
+
+            const trailSize = 40;
+            const trailElements = [];
+            const maxTrail = 40;
+            const imageCount = 100;
+
+            for (let i = 0; i < maxTrail; i++) {
+                const square = document.createElement("div");
+                square.style.position = "absolute";
+                square.style.width = `${trailSize}px`;
+                square.style.height = `${trailSize}px`;
+                square.style.backgroundColor = "rgba(0, 0, 0, 0)";
+                square.style.transition = "transform 0.2s linear";
+                square.style.transform = "scale(0)";
+                square.style.backgroundSize = "cover";
+                square.style.backgroundPosition = "center";
+                
+                const imageIndex = (i % imageCount) + 1;
+                square.style.backgroundImage = `url('media/favicon(${imageIndex}).png')`;
+                
+                trailContainer.appendChild(square);
+                trailElements.push(square);
+            }
+
+            document.addEventListener("mousemove", function (event) {
+                const { clientX, clientY } = event;
+                
+                trailElements.forEach((square, index) => {
+                    setTimeout(() => {
+                        square.style.transform = `translate(${clientX - trailSize / 2}px, ${clientY - trailSize / 2}px) scale(1)`;
+                    }, index * 80);
+                });
+            });
+
+            document.addEventListener("mouseleave", function () {
+                trailElements.forEach(square => {
+                    square.style.transform = "scale(0)";
+                });
+            });
+        });
+    </script>
+      <script src = "script.js"></script>
+</body>
+</html>
